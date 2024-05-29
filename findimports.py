@@ -658,7 +658,8 @@ class ModuleGraph(object):
             modname.append(elements.pop())
             if not os.path.exists(
                 os.path.sep.join(elements + ['__init__.py'])
-            ):
+            ) and elements[-1] != 'cy':
+                # NOTE:HACK
                 break
         modname.reverse()
         modname = ".".join(modname)
